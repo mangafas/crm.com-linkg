@@ -174,17 +174,24 @@ input[type="checkbox"] {
       </div>
       <div class="rightTab">
         <form>
-        <select id="dropdown" name="currentPos" class="dropdown">
+          <!--
+<select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+    <option value="">Select...</option>
+    <option value="http://google.com">Google</option>
+    <option value="http://yahoo.com">Yahoo</option>
+</select>
+-->
+        <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" id="dropdown" name="currentPos" class="dropdown">
       <option disabled value>Select an option</option>
-      <option value="email_track" id="ac1h">Email Track</option>
-<option value="opt_in_direct_marketing">Opt in direct marketing</option>
-<option value="opt_in_affiliate_marketing">Opt in affiliate marketing</option>
-<option value="opt_out_direct_marketing">Opt out direct marketing</option>
-<option value="opt_out_affiliate_marketing">Opt out affiliate marketing</option>
-<option value="link_track">Link Track</option>
-<option value="service_request_response_acceptance">Service Request Response Acceptance</option>
-<option value="service_request_temporary_resolution_acceptance">Service Request Temporary Response Acceptance</option>
-<option value="service_request_final_resolution_acceptance">Service Request Final Response Acceptance</option>
+      <option value="https://mangafas.github.io/crm.com-linkg/actions/email_track" id="ac1h">Email Track</option>
+<option value="https://mangafas.github.io/crm.com-linkg/actions/opt_in_direct_marketing">Opt in direct marketing</option>
+<option value="https://mangafas.github.io/crm.com-linkg/actions/opt_in_affiliate_marketing">Opt in affiliate marketing</option>
+<option value="https://mangafas.github.io/crm.com-linkg/actions/opt_out_direct_marketing">Opt out direct marketing</option>
+<option value="https://mangafas.github.io/crm.com-linkg/actions/opt_out_affiliate_marketing">Opt out affiliate marketing</option>
+<option value="https://mangafas.github.io/crm.com-linkg/actions/link_track">Link Track</option>
+<option value="https://mangafas.github.io/crm.com-linkg/actions/service_request_response_acceptance">Service Request Response Acceptance</option>
+<option value="https://mangafas.github.io/crm.com-linkg/actions/service_request_temporary_resolution_acceptance">Service Request Temporary Response Acceptance</option>
+<option value="https://mangafas.github.io/crm.com-linkg/actions/service_request_final_resolution_acceptance">Service Request Final Response Acceptance</option>
 <input name="radio-buttons" 
      id="submit" type="submit" onclick = "myfunc();redi()"
        </button>
@@ -195,55 +202,7 @@ input[type="checkbox"] {
 </div>
   
   
-    <script>
-    function myfunc()
-    {
-    let elem=document.getElementById('dropdown');
-    let selectedValue = elem.options[elem.selectedIndex].value;
-    console.log("selected");
-      
-    }
-function redi()
-    {
-      window.location  = "https://mangafas.github.io/crm.com-linkg/actions/email_track.html"
-      for(var i=0;i<15;i++){
-        console.log("fsad")
-      }
-    }
-
-    /* 
-    if (selectedValue === "email_track"){
-      window.location = "https://mangafas.github.io/crm.com-linkg/actions/email_link.html"
-    }
-  // 2nd case
-  else if(selectedValue === "opt_in_direct_marketing"){
-    //second case 
-  }
-          
-  else if(selectedValue == "opt_in_affiliate_marketing"){
-    //third case
-  }
-  else if(selectedValue == "opt_out_direct_marketing"){
-    //fourth case
-  } 
-  else if(selectedValue == "opt_out_affiliate_marketing"){
-    //fifth case
-  }
-  else if(selectedValue=="link_track"){
-    //sixth case
-    }
-  else if(selectedValue === "service_request_response_acceptance"){
-    //seventh case
-  }
-  else if(selectedValue == "service_request_temporary_resolution_acceptance"){
-    //eight case
-  } 
-  else if(selectedValue == "service_request_final_resolution_acceptance"){
-    //ninth case
-  }
-  */
-  </script>
-
+  
   
   
 
