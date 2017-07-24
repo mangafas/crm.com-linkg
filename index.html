@@ -1,5 +1,19 @@
-<style>
-@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+
+
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
+  <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
+  <title>CodePen - A Pen by  Panayiotis Mangafas</title>
+  
+  
+  
+  
+      <style>
+      @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
 
 html,
 body {
@@ -114,10 +128,17 @@ input[type="checkbox"] {
     width: 100%;
   }
 }
-</style>
+    </style>
 
+  
+  
+  
+  
+</head>
 
-<h1 id="title">CRM.COM Link Generator</h1>
+<body translate="no" >
+
+  <h1 id="title">CRM.COM Link Generator</h1>
 <div id="form-outer">
   
     <!--
@@ -165,19 +186,67 @@ input[type="checkbox"] {
 <option value="service_request_temporary_resolution_acceptance">Service Request Temporary Response Acceptance</option>
 <option value="service_request_final_resolution_acceptance">Service Request Final Response Acceptance</option>
 <input name="radio-buttons" 
-     id="submit" type="submit" onclick = "myfunc()"
+     id="submit" type="submit" onclick = "myfunc();redi()"
        </button>
   </form>
       </div>
     </div>
       <p id="demo"></p>
 </div>
+  
+  
     <script>
     function myfunc()
     {
     let elem=document.getElementById('dropdown');
-    let selected = elem.options[elem.selectedIndex].value;
+    let selectedValue = elem.options[elem.selectedIndex].value;
     console.log("selected");
+      
     }
-    </script>
-        
+function redi()
+    {
+      window.location  = "https://mangafas.github.io/crm.com-linkg/actions/email_track.html"
+      for(var i=0;i<15;i++){
+        console.log("fsad")
+      }
+    }
+
+    /* 
+    if (selectedValue === "email_track"){
+      window.location = "https://mangafas.github.io/crm.com-linkg/actions/email_link.html"
+    }
+  // 2nd case
+  else if(selectedValue === "opt_in_direct_marketing"){
+    //second case 
+  }
+          
+  else if(selectedValue == "opt_in_affiliate_marketing"){
+    //third case
+  }
+  else if(selectedValue == "opt_out_direct_marketing"){
+    //fourth case
+  } 
+  else if(selectedValue == "opt_out_affiliate_marketing"){
+    //fifth case
+  }
+  else if(selectedValue=="link_track"){
+    //sixth case
+    }
+  else if(selectedValue === "service_request_response_acceptance"){
+    //seventh case
+  }
+  else if(selectedValue == "service_request_temporary_resolution_acceptance"){
+    //eight case
+  } 
+  else if(selectedValue == "service_request_final_resolution_acceptance"){
+    //ninth case
+  }
+  */
+  </script>
+
+  
+  
+
+</body>
+</html>
+ 
