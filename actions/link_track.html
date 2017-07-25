@@ -1,4 +1,7 @@
 
+<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/hmac-sha256.js"></script>
+<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
+
 <html>
 
 <head>
@@ -68,7 +71,9 @@ header {
 #userAge {
   width: 40px;
 }
-
+#demo {
+          background-color: rgb(250, 250, 250);
+    }
 .userRatings,
 input[type="checkbox"] {
   float: left;
@@ -204,14 +209,14 @@ input[type="checkbox"] {
         <input type="text" name="pv3h" id="pv3h" class="input-field" class="input-field" placeholder="pv3">
       </div>
       </div>
-    <button id="submit" onClick="submitFunction()" type="submit">Submit</button>
+    <button id="submit" onClick="submitFunction()" type="button">Submit</button>
   </form>
   <p id="demo"></p>
 </div>
 
       <script>
     function submitFunction(){
-alert("got in")
+
 let serverjs = document.getElementById("serverh").value;
 let pv1js = document.getElementById("pv1h").value;
 let pv2js = document.getElementById("pv2h").value;
@@ -223,14 +228,25 @@ let s3 = '&amp;pv2=';
 let s4 = '&amp;pv3=';
 let s5 = '&amp;pv4=';
 let s6 = '&amp;act=dynamic&amp;jndi=ejb/CRMProcessContactInformation&amp;fc=dynamicAction&amp;pvc=5';
-let token = 5;
+let ks1 = 'link_track + ';
+let ks2 = ' + ';
+let hms1 = 'action: link_track and link: ';
+let hms2 = ' and communication: ';
+let hsm3 = ' and organisation:';
+let sha_key = ks1 + pv1js + ks2 + pv2js + ks2 + pv3js;
+let hmac_key = hms1 + pv1js + hms2 + pv2js + hsm3 + pv3js;
+let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
+  let token = CryptoJS.enc.Hex.stringify(hash);
 let urljs =  s1 + serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
  document.getElementById("demo").innerHTML = urljs;
 }
   </script>
-
-
-
-
 </body>
 </html>
+<!--
+
+Key tokens for sha256 and hmac
+
+link_track + [Link] + [COMMUNICATIONS.COMMID] + [Organisation]
+action: link_track and link: [Link] and communication: [COMMUNICATIONS.COMMID] and organisation:[Organisation]
+-->
