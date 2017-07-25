@@ -2,13 +2,10 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
-  <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
-  <title>CodePen - email track</title>
-  
-  
-  
+
+
+
+
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
 
       <style>
@@ -93,7 +90,7 @@ input[type="checkbox"] {
   height: 35px;
   width: 140px;
   padding: 5px;
-  margin: 10px;  
+  margin: 10px;
   margin-top: 15px;
   border: 1px solid #c0c0c0;
   border-radius: 2px;
@@ -134,10 +131,10 @@ input[type="checkbox"] {
 }
     </style>
 
-  
-  
-  
-  
+
+
+
+
 </head>
 
 <body translate="no" >
@@ -150,7 +147,7 @@ input[type="checkbox"] {
         <label for="currentPos">You've selected Link Track. Want to change?</label>
       </div>
       <div class="rightTab">
-        <form> 
+        <form>
 
         <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" id="dropdown" name="currentPos" class="dropdown">
       <option></option>
@@ -165,8 +162,8 @@ input[type="checkbox"] {
 <option value="https://mangafas.github.io/crm.com-linkg/actions/service_request_final_resolution_acceptance">Service Request Final Response Acceptance</option>
   </form>
       </div>
-        
-    </div> 
+
+    </div>
       <div class="rowTab">
       <div class="labels">
         <label id="name-label" for="name">* Name: </label>
@@ -207,19 +204,19 @@ input[type="checkbox"] {
         <input type="text" name="pv3h" id="pv3h" class="input-field" class="input-field" placeholder="pv3">
       </div>
       </div>
-    <button id="submit" onClick="sumbitFunction()" type="submit">Submit</button>
+    <button id="submit" onClick="submitFunction()" type="submit">Submit</button>
   </form>
   <p id="demo"></p>
 </div>
-  
+
       <script>
     function submitFunction(){
-console.log("got in")
+alert("got in")
 let serverjs = document.getElementById("serverh").value;
 let pv1js = document.getElementById("pv1h").value;
 let pv2js = document.getElementById("pv2h").value;
 let pv3js = document.getElementById("pv3h").value;
-      
+
 let s1 = 'https://';
 let s2 = '.crm.com/crm/dynamic.do?pv0=link_track&amp;pv1=';
 let s3 = '&amp;pv2=';
@@ -232,9 +229,8 @@ let urljs =  s1 + serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token +
 }
   </script>
 
-  
-  
+
+
 
 </body>
 </html>
- 
