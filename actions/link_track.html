@@ -1,5 +1,6 @@
 
 
+
 <!DOCTYPE html>
 <html >
 
@@ -218,7 +219,7 @@ input[type="checkbox"] {
       </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="number-label" for="age">COMMUNICATIONS.COMMID</label>
+        <label id="number-label" for="age">Communications ID</label>
       </div>
       <div class="rightTab">
         <input type="text" name="pv2h" id="pv2h" class="input-field" class="input-field" placeholder="pv2">
@@ -267,6 +268,7 @@ let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
       let result = urljs.link(urljs);
  document.getElementById("intro").innerHTML = prefix;
  document.getElementById("demo").innerHTML = result;
+ window.open(urljs);
 }
   </script>
 </body>
