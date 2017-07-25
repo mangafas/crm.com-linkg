@@ -1,16 +1,38 @@
 
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/hmac-sha256.js"></script>
-<script src="http://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
+
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon"
+      type="image/ico"
+      href="http://crm.com/favicon.ico">
+  <title>Link Track || CRM.COM Link Generator</title>
+
+
+
+
+
+
+
+
+
+</head>
+
+<body translate="no" >
+
+
+<script src="https://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/hmac-sha256.js"></script>
+<script src="https://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
 
 <html>
 
 <head>
 
-  <link rel="icon" 
-      type="image/ico" 
-      href="http://crm.com/favicon.ico">
-<title> Link Track || CRM.COM Link Generator</title>
-  
+
+
+
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
 
       <style>
@@ -138,8 +160,11 @@ input[type="checkbox"] {
 }
     </style>
 
+
+<link rel="icon" type="image/ico" href="https://crm.com/favicon.ico">
+<title> Link Track || CRM.COM Link Generator</title>
 </head>
-  
+
 <body translate="no" >
 
   <h1 id="title">CRM.COM Link Generator</h1>
@@ -207,9 +232,10 @@ input[type="checkbox"] {
         <input type="text" name="pv3h" id="pv3h" class="input-field" class="input-field" placeholder="pv3">
       </div>
       </div>
-    <button id="submit" onClick="submitFunction()" type="button">Submit</button>
+    <button id="submit" onClick="submitFunction()" type="button">Generate Link</button>
   </form>
-  <p id="demo"></p>
+  <p id="intro"></p>
+  <a id="demo"></a>
 </div>
 
       <script>
@@ -220,8 +246,8 @@ let pv1js = document.getElementById("pv1h").value;
 let pv2js = document.getElementById("pv2h").value;
 let pv3js = document.getElementById("pv3h").value;
 
-let s1 = 'https://';
-let s2 = '.crm.com/crm/dynamic.do?pv0=link_track&amp;pv1=';
+//let s1 = 'https://.crm.com';
+let s2 = '/crm/dynamic.do?pv0=link_track&amp;pv1=';
 let s3 = '&amp;pv2=';
 let s4 = '&amp;pv3=';
 let s5 = '&amp;pv4=';
@@ -235,8 +261,12 @@ let sha_key = ks1 + pv1js + ks2 + pv2js + ks2 + pv3js;
 let hmac_key = hms1 + pv1js + hms2 + pv2js + hsm3 + pv3js;
 let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
   let token = CryptoJS.enc.Hex.stringify(hash);
-let urljs =  s1 + serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
- document.getElementById("demo").innerHTML = urljs;
+let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
+      let prefix = "Generated Link:  "
+      let final = prefix + urljs;
+      let result = urljs.link(urljs);
+ document.getElementById("intro").innerHTML = prefix;
+ document.getElementById("demo").innerHTML = result;
 }
   </script>
 </body>
@@ -248,3 +278,12 @@ Key tokens for sha256 and hmac
 link_track + [Link] + [COMMUNICATIONS.COMMID] + [Organisation]
 action: link_track and link: [Link] and communication: [COMMUNICATIONS.COMMID] and organisation:[Organisation]
 -->
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js'></script>
+
+
+
+
+
+</body>
+</html>
