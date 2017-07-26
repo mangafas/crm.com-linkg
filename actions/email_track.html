@@ -242,10 +242,11 @@ input[type="checkbox"] {
 let serverjs = document.getElementById("serverh").value;
 let pv1js = document.getElementById("pv1h").value;
 let pv2js = document.getElementById("pv2h").value;
-let pv3js = document.getElementById("pv3h").value;
+
 
 //let s1 = 'https://.crm.com';
 // change
+console.log('pressed')
 let s2 = '/crm/dynamic.do?pv0=email_track&amp;pv1=';
 let s3 = '&amp;pv2=';
 let s4 = '&amp;pv3=';
@@ -262,11 +263,13 @@ let hmac_key = hms1 + pv1js + hms2 + pv2js;
 let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
 let token = CryptoJS.enc.Hex.stringify(hash);
 let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + token + s6;
-let prefix = "Generated Link:  "
+let prefix = "Generated Link:  ";
 let result = urljs.link(urljs);
+console.log("ready");
  document.getElementById("intro").innerHTML = prefix;
  document.getElementById("demo").innerHTML = result;
  window.open(urljs);
+ console.log("out");
 }
   </script>
 </body>
