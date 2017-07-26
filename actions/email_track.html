@@ -5,12 +5,35 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="shortcut icon" type="image/x-icon" href="https://production-assets.codepen.io/assets/favicon/favicon-8ea04875e70c4b0bb41da869e81236e54394d63638a1ef12fa558a4a835f1164.ico" />
-  <link rel="mask-icon" type="" href="https://production-assets.codepen.io/assets/favicon/logo-pin-f2d2b6d2c61838f7e76325261b7195c27224080bc099486ddd6dccb469b8e8e6.svg" color="#111" />
-  <title>CodePen - email track</title>
-  
-  
-  
+  <link rel="icon"
+      type="image/ico"
+      href="http://crm.com/favicon.ico">
+  <title>Email Track || CRM.COM Link Generator</title>
+  <!-- change -->
+
+
+
+
+
+
+
+
+
+</head>
+
+<body translate="no" >
+
+
+<script src="https://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/hmac-sha256.js"></script>
+<script src="https://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
+
+<html>
+
+<head>
+
+
+
+
   <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
 
       <style>
@@ -73,7 +96,9 @@ header {
 #userAge {
   width: 40px;
 }
-
+#demo {
+          background-color: rgb(250, 250, 250);
+    }
 .userRatings,
 input[type="checkbox"] {
   float: left;
@@ -95,7 +120,7 @@ input[type="checkbox"] {
   height: 35px;
   width: 140px;
   padding: 5px;
-  margin: 10px;  
+  margin: 10px;
   margin-top: 15px;
   border: 1px solid #c0c0c0;
   border-radius: 2px;
@@ -136,10 +161,12 @@ input[type="checkbox"] {
 }
     </style>
 
-  
-  
-  
-  
+
+    <link rel="icon"
+        type="image/ico"
+        href="http://crm.com/favicon.ico">
+    <title>Email Track || CRM.COM Link Generator</title>
+    <!-- change -->
 </head>
 
 <body translate="no" >
@@ -149,15 +176,16 @@ input[type="checkbox"] {
   <div class="rowTab">
       <div class="labels">
 
-        <label for="currentPos">You've selected Email Track. Want to change?</label>
+        <label for="currentPos">You've selected Email Track. Want to change?</label> <!-- change -->
       </div>
       <div class="rightTab">
-        <form> 
+        <form>
 
         <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" id="dropdown" name="currentPos" class="dropdown">
       <option></option>
-      <option value="https://mangafas.github.io/crm.com-linkg/actions/email_track"selected disabled>Email Track</option>
-<option value="https://mangafas.github.io/crm.com-linkg/actions/opt_in_direct_marketing">Opt in direct marketing</option>
+       <!-- change -->
+      <option value="https://mangafas.github.io/crm.com-linkg/actions/email_track" selected disabled>Email Track</option>
+<option value="https://mangafas.github.io/crm.com-linkg/actions/opt_in_direct_marketing" >Opt in direct marketing</option>
 <option value="https://mangafas.github.io/crm.com-linkg/actions/opt_in_affiliate_marketing">Opt in affiliate marketing</option>
 <option value="https://mangafas.github.io/crm.com-linkg/actions/opt_out_direct_marketing">Opt out direct marketing</option>
 <option value="https://mangafas.github.io/crm.com-linkg/actions/opt_out_affiliate_marketing">Opt out affiliate marketing</option>
@@ -167,8 +195,9 @@ input[type="checkbox"] {
 <option value="https://mangafas.github.io/crm.com-linkg/actions/service_request_final_resolution_acceptance">Service Request Final Response Acceptance</option>
   </form>
       </div>
-        
-    </div> 
+
+    </div>
+    <!-- change -->
       <div class="rowTab">
       <div class="labels">
         <label id="name-label" for="name">* Name: </label>
@@ -187,7 +216,7 @@ input[type="checkbox"] {
     </div>
     <div class="rowTab">
       <div class="labels">
-        <label id="number-label" for="age">COMMUNICATIONS.COMMID</label>
+        <label id="number-label" for="age">Communications ID</label>
       </div>
       <div class="rightTab">
         <input type="text" name="pv1h" id="pv1h" class="input-field" class="input-field" placeholder="pv1">
@@ -201,33 +230,56 @@ input[type="checkbox"] {
         <input type="text" name="pv2h" id="pv2h" class="input-field" class="input-field" placeholder="pv2">
       </div>
       </div>
-    <button id="submit" onClick="sumbitFunction()" type="submit">Submit</button>
+    <button id="submit" onClick="submitFunction()" type="button">Generate Link</button>
   </form>
-  <p id="demo"></p>
+  <p id="intro"></p>
+  <a id="demo"></a>
 </div>
-  
-  <script src='https://gitcdn.link/repo/freeCodeCamp/testable-projects-fcc/master/build/bundle.js'></script>
 
-    <script>
+      <script>
     function submitFunction(){
-console.log("got in")
+
 let serverjs = document.getElementById("serverh").value;
 let pv1js = document.getElementById("pv1h").value;
 let pv2js = document.getElementById("pv2h").value;
-let s1 = 'https://';
-let s2 = '.crm.com/crm/dynamic.do?pv0=email_track&amp;pv1=';
+let pv3js = document.getElementById("pv3h").value;
+
+//let s1 = 'https://.crm.com';
+// change
+let s2 = '/crm/dynamic.do?pv0=email_track&amp;pv1=';
 let s3 = '&amp;pv2=';
 let s4 = '&amp;pv3=';
-let s5 = '&amp;act=dynamic&amp;jndi=ejb/CRMProcessCommunication&amp;fc=dynamicActionEmailTrack&amp;pvc=4';
-let token = 5;
-let urljs =  s1+ serverjs + s2 + pv1js + s3 + pv2js + s4 + token + s5;
- document.getElementById("demo").innerHTML = urljs;
+let s5 = '&amp;pv4=';
+// change
+let s6 = '&amp;act=dynamic&amp;jndi=ejb/CRMProcessCommunication&amp;fc=dynamicActionEmailTrack&amp;pvc=4';
+// change
+let ks1 = 'email_track + ';
+let ks2 = ' + ';
+let hms1 = 'action: email_track and communication: ';
+let hms2 = ' and organisation:';
+let sha_key = ks1 + pv1js + ks2 + pv2js;
+let hmac_key = hms1 + pv1js + hms2 + pv2js;
+let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
+let token = CryptoJS.enc.Hex.stringify(hash);
+let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + token + s6;
+let prefix = "Generated Link:  "
+let result = urljs.link(urljs);
+ document.getElementById("intro").innerHTML = prefix;
+ document.getElementById("demo").innerHTML = result;
+ window.open(urljs);
 }
   </script>
+</body>
+</html>
+<!--
+change
+Key tokens for sha256 and hmac
 
-  
-  
+email_track + [COMMUNICATIONS.COMMID] + [Organisation]
+action: email_track and communication: [COMMUNICATIONS.COMMID] and organisation:[Organisation]
+-->
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js'></script>
 
 </body>
 </html>
- 
