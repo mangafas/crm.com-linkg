@@ -219,7 +219,7 @@ input[type="checkbox"] {
         <label id="number-label" for="age">Contact Information ID</label>
       </div>
       <div class="rightTab">
-        <input type="text" name="pv1h" id="pv1h" class="input-field" class="input-field" placeholder="pv1">
+        <input type="text" name="pv1h" id="pv1h" class="input-field" class="input-field">
       </div>
       </div>
     <div class="rowTab">
@@ -227,7 +227,7 @@ input[type="checkbox"] {
         <label id="number-label" for="age">Organisation</label>
       </div>
       <div class="rightTab">
-        <input type="text" name="pv2h" id="pv2h" class="input-field" class="input-field" placeholder="pv2">
+        <input type="text" name="pv2h" id="pv2h" class="input-field" class="input-field">
       </div>
       </div>
     <div class="rowTab">
@@ -235,7 +235,7 @@ input[type="checkbox"] {
         <label id="number-label" for="age">Redirection URL</label>
       </div>
       <div class="rightTab">
-        <input type="text" name="pv3h" id="pv3h" class="input-field" class="input-field" placeholder="pv3">
+        <input type="text" name="pv3h" id="pv3h" class="input-field" class="input-field">
       </div>
       </div>
     <button id="submit" onClick="submitFunction()" type="button">Generate Link</button>
@@ -254,12 +254,12 @@ let pv3js = document.getElementById("pv3h").value;
 
 //let s1 = 'https://.crm.com';
 // change
-let s2 = '/crm/dynamic.do?pv0=opt_out_direct_marketing&amp;pv1=';
-let s3 = '&amp;pv2=';
-let s4 = '&amp;pv3=';
-let s5 = '&amp;pv4=';
+let s2 = '/crm/dynamic.do?pv0=opt_out_direct_marketing&pv1=';
+let s3 = '&pv2=';
+let s4 = '&pv3=';
+let s5 = '&pv4=';
 // change
-let s6 = '&amp;act=dynamic&amp;jndi=ejb/CRMProcessContactInformation&amp;fc=dynamicAction&amp;pvc=5';
+let s6 = '&act=dynamic&jndi=ejb/CRMProcessContactInformation&fc=dynamicAction&pvc=5';
 // change
 let ks1 = 'opt_out + ';
 let ks2 = ' + ';
