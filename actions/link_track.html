@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html >
 
@@ -180,7 +181,7 @@ input[type="checkbox"] {
 
         <select onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);" id="dropdown" name="currentPos" class="dropdown">
       <option></option>
-      <option value="https://mangafas.github.io/crm.com-linkg/actions/email_track.html">Email Track</option>
+      <option value="https://mangafas.github.io/crm.com-linkg/actions/email_track">Email Track</option>
 <option value="https://mangafas.github.io/crm.com-linkg/actions/opt_in_direct_marketing" >Opt in direct marketing</option>
 <option value="https://mangafas.github.io/crm.com-linkg/actions/opt_in_affiliate_marketing" >Opt in affiliate marketing</option>
 <option value="https://mangafas.github.io/crm.com-linkg/actions/opt_out_direct_marketing">Opt out direct marketing</option>
@@ -214,7 +215,7 @@ input[type="checkbox"] {
         <label id="number-label" for="age">Link</label>
       </div>
       <div class="rightTab">
-        <input type="text" name="pv1h" id="pv1h" class="input-field" class="input-field" placeholder="pv1">
+        <input type="text" name="pv1h" id="pv1h" class="input-field" class="input-field">
       </div>
       </div>
     <div class="rowTab">
@@ -222,7 +223,7 @@ input[type="checkbox"] {
         <label id="number-label" for="age">Communications ID</label>
       </div>
       <div class="rightTab">
-        <input type="text" name="pv2h" id="pv2h" class="input-field" class="input-field" placeholder="pv2">
+        <input type="text" name="pv2h" id="pv2h" class="input-field" class="input-field">
       </div>
       </div>
     <div class="rowTab">
@@ -230,7 +231,7 @@ input[type="checkbox"] {
         <label id="number-label" for="age">Organisation</label>
       </div>
       <div class="rightTab">
-        <input type="text" name="pv3h" id="pv3h" class="input-field" class="input-field" placeholder="pv3">
+        <input type="text" name="pv3h" id="pv3h" class="input-field" class="input-field">
       </div>
       </div>
     <button id="submit" onClick="submitFunction()" type="button">Generate Link</button>
@@ -248,11 +249,11 @@ let pv2js = document.getElementById("pv2h").value;
 let pv3js = document.getElementById("pv3h").value;
 
 //let s1 = 'https://.crm.com';
-let s2 = '/crm/dynamic.do?pv0=link_track&amp;pv1=';
-let s3 = '&amp;pv2=';
-let s4 = '&amp;pv3=';
-let s5 = '&amp;pv4=';
-let s6 = '&amp;act=dynamic&amp;jndi=ejb/CRMProcessCommunication&amp;fc=dynamicAction&amp;pvc=5';
+let s2 = '/crm/dynamic.do?pv0=link_track&pv1=';
+let s3 = '&pv2=';
+let s4 = '&pv3=';
+let s5 = '&pv4=';
+let s6 = '&act=dynamic&jndi=ejb/CRMProcessCommunication&fc=dynamicAction&pvc=5';
 let ks1 = 'link_track + ';
 let ks2 = ' + ';
 let hms1 = 'action: link_track and link: ';
