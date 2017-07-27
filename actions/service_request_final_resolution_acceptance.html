@@ -285,6 +285,12 @@ let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
 let prefix = "Generated Link:  "
 let final = prefix + urljs;
 let result = urljs.link(urljs);
+ console.log("You're logged on: " + serverjs);
+ console.log("Service Request ID: " + pv1js);
+ console.log("Contact Information ID: " + pv2js);
+ console.log("Organisation: " + pv3js);
+ console.log("Redirection URL: " + pv4js);
+ console.log("Token: " + token);
  document.getElementById("intro").innerHTML = prefix;
  document.getElementById("demo").innerHTML = result;
  window.open(urljs);
