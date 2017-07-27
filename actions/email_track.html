@@ -265,11 +265,13 @@ let token = CryptoJS.enc.Hex.stringify(hash);
 let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + token + s6;
 let prefix = "Generated Link:  ";
 let result = urljs.link(urljs);
-console.log("ready");
- document.getElementById("intro").innerHTML = prefix;
- document.getElementById("demo").innerHTML = result;
- window.open(urljs);
- console.log("out");
+console.log("You're logged on: " + serverjs);
+console.log("Communications ID: " + pv1js);
+console.log("Organisation: " + pv2js);
+console.log("Token: " + token);
+document.getElementById("intro").innerHTML = prefix;
+document.getElementById("demo").innerHTML = result;
+window.open(urljs);
 }
   </script>
 </body>
