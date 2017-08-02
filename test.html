@@ -1,0 +1,506 @@
+
+
+<body>
+
+  <script src="https://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/hmac-sha256.js"></script>
+  <script src="https://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
+
+<select onchange="changeOptions(this)" id="dropdown" name="currentPos" class="dropdown">
+<option selected disabled></option>
+<!-- change -->
+<option value="email_track">Email Track</option>
+<option value="opt_in_direct_marketing" >Opt in direct marketing</option>
+<option value="opt_in_affiliate_marketing">Opt in affiliate marketing</option>
+<option value="opt_out_direct_marketing">Opt out direct marketing</option>
+<option value="opt_out_affiliate_marketing">Opt out affiliate marketing</option>
+<option value="link_track">Link Track</option>
+<option value="service_request_response_acceptance">Service Request Response Acceptance</option>
+<option value="service_request_temporary_resolution_acceptance">Service Request Temporary Response Acceptance</option>
+<option value="service_request_final_resolution_acceptance">Service Request Final Response Acceptance</option>
+
+<div id="form_sample">
+  <p id="demo value="asdaddaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"">resuafsdsfsfasdfsdffdsafds</p>
+  <script> let asda = document.getElementById("demo");
+  console.log(asda);
+  </script>
+</div>
+
+
+
+<script>
+function changeOptions(selectEl) {
+  let first = "0";
+  let forms = new Array();
+  forms[0] = new Array ( "Server: ", "Communications ID: ", "Organisation: " ); //email_track
+  forms[1] = new Array ("serverh", "pv1h", "pv2h", "pv3h", "pv4h");
+  forms[2] = new Array ( "Server: ", "Contact Information ID: ", "Organisation: ", "Redirection URL: "); // opt_in/out_direct/affiliate_marketing
+  forms[3] = new Array ( "Server", "Link", "Communications ID", "Organisation"); //link_track
+  forms[4] = new Array ( "Server", "Service Request ID: ", "Contact Information ID: ", "Organisation: ", "Redirection URL: ");
+  console.log("forms Array created");
+
+  let selectedValue = selectEl.options[selectEl.selectedIndex].value;
+  if(selectedValue == "email_track"){
+    let createform = document.createElement('form'); // Create New Element Form
+    createform.setAttribute("action", ""); // Setting Action Attribute on Form
+    createform.setAttribute("method", "post"); // Setting Method Attribute on Form
+    console.log(createform.children.length);
+    if(first == "0"){
+      console.log("sa");
+      console.log(document.body);
+
+    var ls = document.body.getElementsByTagName("label")[0];
+            console.log(ls);
+            //document.body.removeChild(ls);
+            console.log("sa");
+          }
+          else if(first == "1"){
+            console.log("as");
+          }
+    let linebreak = document.createElement("br");
+    let f = document.getElementById("form_sample");
+    console.log("form created");
+    console.log(createform);
+    console.log("form created");
+    first = false;
+    for(let i=0;i < forms[0].length;i++){
+      console.log("into the loop");
+      console.log(createform.children.length);
+      let x = document.createElement('label'); // Create Label for Name Field
+      x.innerHTML = forms[0][i]; // Set Field Labels
+      createform.appendChild(x);
+      x.setAttribute("for", forms[0][i]);
+      createform.appendChild(x);
+      console.log(x);
+      let y = document.createElement('input'); // Create Input Field for Name
+      console.log(y);
+      y.setAttribute("type", "text");
+      y.setAttribute("name", forms[0][i]);
+      y.setAttribute("id", forms[1][i]);
+      console.log(forms[1][i]);
+      y.setAttribute("class", "input-field");
+      createform.appendChild(y);
+      createform.appendChild(document.createElement("br"));
+    }
+    var submitt = document.createElement("INPUT");
+    submitt.setAttribute("type", "button");
+    submitt.setAttribute("value", "Generate Link");
+    var answer  = document.createElement("p");
+    answer.setAttribute("id", "demo");
+    //let ans = document.createTextNode("Hello World");
+    createform.appendChild(answer);
+    //answer.appendChild(ans);
+    console.log(answer);
+    document.body.appendChild(answer);
+    submitt.onclick = function() {submitFunction()};
+    createform.appendChild(submitt);
+    console.log("createform created");
+    console.log(createform);
+    console.log(f);
+    //f.appendChild(createform);
+    document.getElementsByTagName('body')[0].appendChild(createform);
+  }
+    else if(selectedValue == "opt_in_direct_marketing" ||
+            selectedValue == "opt_in_affiliate_marketing" ||
+            selectedValue == "opt_out_direct_marketing" ||
+            selectedValue == "opt_out_affiliate_marketing"){
+              first = "1";
+              let f = document.getElementById("form_sample");
+              let createform = document.createElement('form'); // Create New Element Form
+              createform.setAttribute("action", ""); // Setting Action Attribute on Form
+              createform.setAttribute("method", "post"); // Setting Method Attribute on Form
+              console.log("form created");
+              console.log(createform);
+              console.log("form created");
+      for(let i=0;i < forms[2].length;i++){
+        let x = document.createElement('label'); // Create Label for Name Field
+        x.innerHTML = forms[2][i]; // Set Field Labels
+        createform.appendChild(x);
+        x.setAttribute("for", forms[2][i]);
+        createform.appendChild(x);
+        let y = document.createElement('input'); // Create Input Field for Name
+        y.setAttribute("type", "text");
+        y.setAttribute("name", forms[2][i]);
+        y.setAttribute("id", forms[1][i]);
+        y.setAttribute("class", "input-field");
+        createform.appendChild(y);
+              createform.appendChild(document.createElement("br"));
+      }
+      var submitt = document.createElement("INPUT");
+      submitt.setAttribute("type", "button");
+      submitt.setAttribute("value", "Generate Link");
+      submitt.onclick = function() {submitFunction()};
+      createform.appendChild(submitt);
+      console.log("createform created");
+      console.log(createform);
+      console.log(f);
+      //f.appendChild(createform);
+      document.getElementsByTagName('body')[0].appendChild(createform);
+  }
+      else if(selectedValue == "link_track"){
+        let f = document.getElementById("form_sample");
+        let createform = document.createElement('form'); // Create New Element Form
+        createform.setAttribute("action", ""); // Setting Action Attribute on Form
+        createform.setAttribute("method", "post"); // Setting Method Attribute on Form
+        console.log("form created");
+        console.log(createform);
+        console.log("form created");
+        for(let i=0;i < forms[3].length;i++){
+          let x = document.createElement('label'); // Create Label for Name Field
+          x.innerHTML = forms[3][i]; // Set Field Labels
+          createform.appendChild(x);
+          x.setAttribute("for", forms[3][i]);
+          createform.appendChild(x);
+          let y = document.createElement('input'); // Create Input Field for Name
+          y.setAttribute("type", "text");
+          y.setAttribute("name", forms[3][i]);
+          y.setAttribute("id", forms[1][i]);
+          y.setAttribute("class", "input-field");
+          createform.appendChild(y);
+              createform.appendChild(document.createElement("br"));
+            }
+            var submitt = document.createElement("INPUT");
+            submitt.setAttribute("type", "button");
+            submitt.setAttribute("value", "Generate Link");
+            submitt.onclick = function() {submitFunction()};
+            createform.appendChild(submitt);
+
+        console.log("createform created");
+        console.log(createform);
+        console.log(f);
+        //f.appendChild(createform);
+        document.getElementsByTagName('body')[0].appendChild(createform);
+    }
+        else if(selectedValue == "service_request_response_acceptance" ||
+                selectedValue == "service_request_temporary_resolution_acceptance" ||
+                selectedValue == "service_request_final_resolution_acceptance"){
+                  let f = document.getElementById("form_sample");
+                  let createform = document.createElement('form'); // Create New Element Form
+                  createform.setAttribute("action", ""); // Setting Action Attribute on Form
+                  createform.setAttribute("method", "post"); // Setting Method Attribute on Form
+                  console.log("form created");
+                  console.log(createform);
+                  console.log("form created");
+          for(let i=0;i < forms[4].length;i++){
+            let x = document.createElement('label'); // Create Label for Name Field
+            x.innerHTML = forms[4][i]; // Set Field Labels
+            createform.appendChild(x);
+            x.setAttribute("for", forms[4][i]);
+            createform.appendChild(x);
+            let y = document.createElement('input'); // Create Input Field for Name
+            y.setAttribute("type", "text");
+            y.setAttribute("name", forms[4][i]);
+            y.setAttribute("id", forms[1][i]);
+            y.setAttribute("class", "input-field");
+            createform.appendChild(y);
+                  createform.appendChild(document.createElement("br"));
+          }
+          var submitt = document.createElement("INPUT");
+          submitt.setAttribute("type", "button");
+          submitt.setAttribute("value", "Generate Link");
+          submitt.onclick = function() {submitFunction()};
+          createform.appendChild(submitt);
+          console.log("createform created");
+          console.log(createform);
+          console.log(f);
+          //f.appendChild(createform);
+          document.getElementsByTagName('body')[0].appendChild(createform);
+        }
+  }
+  function submitFunction() {
+    let selectedValue = dropdown.options[dropdown.selectedIndex].value;
+    let serverjs = document.getElementById("serverh").value;
+    let pv1js = document.getElementById("pv1h").value;
+    let pv2js = document.getElementById("pv2h").value;
+    console.log(pv2js);
+    if(selectedValue == "email_track"){
+      console.log("assssssssssssssaap");
+      let s2 = '/crm/dynamic.do?pv0=email_track&pv1=';
+      let s3 = '&pv2=';
+      let s4 = '&pv3=';
+      let s5 = '&pv4=';
+      // change
+      let s6 = '&act=dynamic&jndi=ejb/CRMProcessCommunication&fc=dynamicActionEmailTrack&pvc=4';
+      // change
+      let ks1 = 'email_track + ';
+      let ks2 = ' + ';
+      let hms1 = 'action: email_track and communication: ';
+      let hms2 = ' and organisation:';
+      let sha_key = ks1 + pv1js + ks2 + pv2js;
+      let hmac_key = hms1 + pv1js + hms2 + pv2js;
+      console.log(hmac_key);
+      console.log(sha_key);
+      let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
+      console.log(hash);
+      let token = CryptoJS.enc.Hex.stringify(hash);
+      console.log(token);
+      let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + token + s6;
+      console.log(urljs);
+      let result = urljs.link(urljs);
+      console.log(result);
+      //document.getElementById("intro").innerHTML = prefix;
+       document.getElementById("demo").innerHTML = urljs;
+      window.open(result);
+    }
+    else if(selectedValue=="opt_in_direct_marketing"){
+      let pv3js = document.getElementById("pv3h").value;
+
+      //let s1 = 'https://.crm.com';
+      // change
+      let s2 = '/crm/dynamic.do?pv0=opt_in_Direct_marketing&pv1=';
+      let s3 = '&pv2=';
+      let s4 = '&pv3=';
+      let s5 = '&pv4=';
+      // change
+      let s6 = '&act=dynamic&jndi=ejb/CRMProcessContactInformation&fc=dynamicAction&pvc=5';
+      // change
+      let ks1 = 'opt_in + ';
+      let ks2 = ' + ';
+      let hms1 = 'action: opt_in and contact information: ';
+      let hms2 = ' and organisation:';
+      let hsm3 = ' and link: ';
+      let sha_key = ks1 + pv1js + ks2 + pv2js + ks2 + pv3js;
+      let hmac_key = hms1 + pv1js + hms2 + pv2js + hsm3 + pv3js;
+      let token = 4;
+      // let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
+      // let token = CryptoJS.enc.Hex.stringify(hash);
+      let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
+      let prefix = "Generated link:  "
+      let final = prefix + urljs;
+      let result = urljs.link(urljs);
+      //document.getElementById("intro").innerHTML = prefix;
+      document.getElementById("demo").innerHTML = result;
+      window.open(result);
+    }
+       else if(selectedValue=="opt_out_direct_marketing"){
+         let pv3js = document.getElementById("pv3h").value;
+
+         //let s1 = 'https://.crm.com';
+         // change
+         let s2 = '/crm/dynamic.do?pv0=opt_out_direct_marketing&pv1=';
+         let s3 = '&pv2=';
+         let s4 = '&pv3=';
+         let s5 = '&pv4=';
+         // change
+         let s6 = '&act=dynamic&jndi=ejb/CRMProcessContactInformation&fc=dynamicAction&pvc=5';
+         // change
+         let ks1 = 'opt_out + ';
+         let ks2 = ' + ';
+         let hms1 = 'action: opt_out and contact information: ';
+         let hms2 = ' and organisation:';
+         let hsm3 = ' and link: ';
+         let sha_key = ks1 + pv1js + ks2 + pv2js + ks2 + pv3js;
+         let hmac_key = hms1 + pv1js + hms2 + pv2js + hsm3 + pv3js;
+         let token = 4;
+        //  let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
+        //  let token = CryptoJS.enc.Hex.stringify(hash);
+         let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
+         let prefix = "Generated Link:  "
+         let final = prefix + urljs;
+         let result = urljs.link(urljs);
+          //document.getElementById("intro").innerHTML = prefix;
+          document.getElementById("demo").innerHTML = result;
+          window.open(urljs);
+
+       }
+       else if(selectedValue=="opt_in_affiliate_marketing"){
+         let pv3js = document.getElementById("pv3h").value;
+
+         //let s1 = 'https://.crm.com';
+         // change
+         let s2 = '/crm/dynamic.do?pv0=opt_in_affiliate_marketing&pv1=';
+         let s3 = '&pv2=';
+         let s4 = '&pv3=';
+         let s5 = '&pv4=';
+         // change
+         let s6 = '&act=dynamic&jndi=ejb/CRMProcessContactInformation&fc=dynamicAction&pvc=5';
+         // change
+         let ks1 = 'opt_in + ';
+         let ks2 = ' + ';
+         let hms1 = 'action: opt_in and contact information: ';
+         let hms2 = ' and organisation:';
+         let hsm3 = ' and link: ';
+         let sha_key = ks1 + pv1js + ks2 + pv2js + ks2 + pv3js;
+         let hmac_key = hms1 + pv1js + hms2 + pv2js + hsm3 + pv3js;
+         let token = 4;
+        //  let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
+        //  let token = CryptoJS.enc.Hex.stringify(hash);
+         let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
+         let prefix = "Generated Link:  ";
+         let final = prefix + urljs;
+         let result = urljs.link(urljs);
+          document.getElementById("intro").innerHTML = prefix;
+          document.getElementById("demo").innerHTML = result;
+          window.open(urljs);
+
+       }
+       else if(selectedValue=="opt_out_affiliate_marketing"){
+
+         //let s1 = 'https://.crm.com';
+         // change
+         let s2 = '/crm/dynamic.do?pv0=opt_out_affiliate_marketing&pv1=';
+         let s3 = '&pv2=';
+         let s4 = '&pv3=';
+         let s5 = '&pv4=';
+         // change
+         let s6 = '&act=dynamic&jndi=ejb/CRMProcessContactInformation&fc=dynamicAction&pvc=5';
+         // change
+         let ks1 = 'opt_out + ';
+         let ks2 = ' + ';
+         let hms1 = 'action: opt_out and contact information: ';
+         let hms2 = ' and organisation:';
+         let hsm3 = ' and link: ';
+         let sha_key = ks1 + pv1js + ks2 + pv2js + ks2 + pv3js;
+         let hmac_key = hms1 + pv1js + hms2 + pv2js + hsm3 + pv3js;
+         let token = 4;
+        //  let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
+        //  let token = CryptoJS.enc.Hex.stringify(hash);
+         let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
+         let prefix = "Generated Link:  ";
+         let final = prefix + urljs;
+         let result = urljs.link(urljs);
+          document.getElementById("intro").innerHTML = prefix;
+          document.getElementById("demo").innerHTML = result;
+          window.open(urljs);
+       }
+       else if(selectedValue=="link_track"){
+         let pv3js = document.getElementById("pv3h").value;
+
+         //let s1 = 'https://.crm.com';
+         let s2 = '/crm/dynamic.do?pv0=link_track&pv1=';
+         let s3 = '&pv2=';
+         let s4 = '&pv3=';
+         let s5 = '&pv4=';
+         let s6 = '&act=dynamic&jndi=ejb/CRMProcessCommunication&fc=dynamicAction&pvc=5';
+         let ks1 = 'link_track + ';
+         let ks2 = ' + ';
+         let hms1 = 'action: link_track and link: ';
+         let hms2 = ' and communication: ';
+         let hsm3 = ' and organisation:';
+         let sha_key = ks1 + pv1js + ks2 + pv2js + ks2 + pv3js;
+         let hmac_key = hms1 + pv1js + hms2 + pv2js + hsm3 + pv3js;
+         let token = 4;
+        //  let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
+        //    let token = CryptoJS.enc.Hex.stringify(hash);
+         let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
+               let prefix = "Generated Link:  ";
+               let final = prefix + urljs;
+               let result = urljs.link(urljs);
+          document.getElementById("intro").innerHTML = prefix;
+          document.getElementById("demo").innerHTML = result;
+          window.open(urljs);
+       }
+       else if(selectedValue=="service_request_response_acceptance"){
+         let pv3js = document.getElementById("pv3h").value;
+         let pv4js = document.getElementById("pv4h").value;
+         //let s1 = 'https://.crm.com';
+         // change
+         let s2 = '/crm/dynamic.do?pv0=service_request_response_acceptance&pv1=';
+         let s3 = '&pv2=';
+         let s4 = '&pv3=';
+         let s5 = '&pv4=';
+         let s7 = '&pv5=';
+         // change
+         let s6 = '&act=dynamic&jndi=ejb/CRMProcessServiceRequest&fc=dynamicAction&pvc=6';
+         // change
+         let ks1 = 'sr_acceptance + ';
+         let ks2 = ' + ';
+         let hms1 = 'action: sr_acceptance and service request: ';
+         let hms2 = ' and contact information: ';
+         let hsm3 = ' and organisation:';
+         let hsm4 = ' and link: '
+         let sha_key = ks1 + pv1js + ks2 + pv2js + ks2 + pv3js + ks2 + pv4js;
+         let hmac_key = hms1 + pv1js + hms2 + pv2js + hsm3 + pv3js + hsm4 + pv4js;
+         let token = 4;
+        //  let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
+        //  let token = CryptoJS.enc.Hex.stringify(hash);
+         let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
+         let prefix = "Generated Link:  ";
+         let final = prefix + urljs;
+         let result = urljs.link(urljs);
+          document.getElementById("intro").innerHTML = prefix;
+          document.getElementById("demo").innerHTML = result;
+          window.open(result);
+
+       }
+       else if(selectedValue=="service_request_temporary_resolution_acceptance"){
+         let pv3js = document.getElementById("pv3h").value;
+         let pv4js = document.getElementById("pv4h").value;
+
+         //let s1 = 'https://.crm.com';
+         // change
+         let s2 = '/crm/dynamic.do?pv0=service_request_temporary_response_acceptance&;pv1=';
+         let s3 = '&;pv2=';
+         let s4 = '&;pv3=';
+         let s5 = '&;pv4=';
+         let s7 = '&;pv5=';
+         // change
+         let s6 = '&;act=dynamic&;jndi=ejb/CRMProcessServiceRequest&;fc=dynamicAction&;pvc=6';
+         // change
+         let ks1 = 'sr_acceptance + ';
+         let ks2 = ' + ';
+         let hms1 = 'action: sr_acceptance and service request: ';
+         let hms2 = ' and contact information: ';
+         let hsm3 = ' and organisation:';
+         let hsm4 = ' and link: '
+         let sha_key = ks1 + pv1js + ks2 + pv2js + ks2 + pv3js + ks2 + pv4js;
+         let hmac_key = hms1 + pv1js + hms2 + pv2js + hsm3 + pv3js + hsm4 + pv4js;
+        let token = 4;
+        //  let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
+        //  let token = CryptoJS.enc.Hex.stringify(hash);
+         let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
+         let prefix = "Generated Link:  ";
+         let final = prefix + urljs;
+         let result = urljs.link(urljs);
+          document.getElementById("intro").innerHTML = prefix;
+          document.getElementById("demo").innerHTML = result;
+          window.open(urljs);
+
+       }
+       else if(selectedValue=="service_request_final_resolution_acceptance"){
+         let pv3js = document.getElementById("pv3h").value;
+         let pv4js = document.getElementById("pv4h").value;
+
+         //let s1 = 'https://.crm.com';
+         // change
+         let s2 = '/crm/dynamic.do?pv0=service_request_final_response_acceptance&;pv1=';
+         let s3 = '&;pv2=';
+         let s4 = '&;pv3=';
+         let s5 = '&;pv4=';
+         let s7 = '&;pv5=';
+         // change
+         let s6 = '&;act=dynamic&;jndi=ejb/CRMProcessServiceRequest&;fc=dynamicAction&;pvc=6';
+         // change
+         let ks1 = 'sr_acceptance + ';
+         let ks2 = ' + ';
+         let hms1 = 'action: sr_acceptance and service request: ';
+         let hms2 = ' and contact information: ';
+         let hsm3 = ' and organisation:';
+         let hsm4 = ' and link: '
+         let sha_key = ks1 + pv1js + ks2 + pv2js + ks2 + pv3js + ks2 + pv4js;
+         let hmac_key = hms1 + pv1js + hms2 + pv2js + hsm3 + pv3js + hsm4 + pv4js;
+         let token = 4;
+        //  let hash = CryptoJS.HmacSHA256(sha_key, hmac_key);
+        //  let token = CryptoJS.enc.Hex.stringify(hash);
+        let urljs =  serverjs + s2 + pv1js + s3 + pv2js + s4 + pv3js + s5 + token + s6;
+         let prefix = "Generated Link:  "
+         let final = prefix + urljs;
+         let result = urljs.link(urljs);
+          document.getElementById("intro").innerHTML = prefix;
+          document.getElementById("demo").innerHTML = result;
+          window.open(urljs);
+
+       }
+    console.log(selectedValue);
+    console.log("IN THE ");
+      console.log(serverjs);
+console.log(pv1js);
+console.log(pv2js);
+
+  }
+
+
+</script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.9-1/crypto-js.min.js'></script>
+
+</body>
