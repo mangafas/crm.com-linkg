@@ -1,16 +1,49 @@
 
 
-<body>
-  <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon"
+      type="image/ico"
+      href="http://crm.com/favicon.ico">
+  <title>CRM.COM Link Generator</title>
+  <!-- change -->
+
+  <!-- <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'> -->
 
       <style>
       @import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
 
+      @font-face {
+        font-family: 'Lato-Bold';
+        src: url('fonts/Lato-Bold.eot?#iefix') format('embedded-opentype'),  url('fonts/Lato-Bold.woff') format('woff'), url('fonts/Lato-Bold.ttf')  format('truetype'), url('fonts/Lato-Bold.svg#Lato-Bold') format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+
+      @font-face {
+        font-family: 'Lato-Regular';
+        src: url('fonts/Lato-Regular.eot?#iefix') format('embedded-opentype'),  url('fonts/Lato-Regular.woff') format('woff'), url('fonts/Lato-Regular.ttf')  format('truetype'), url('fonts/Lato-Regular.svg#Lato-Regular') format('svg');
+        font-weight: normal;
+        font-style: normal;
+      }
+body{
+  font-family: 'Lato-Regular';
+
+}
 html,
 header {
-  background-color: #a9d7d1;
   text-align: center;
-  font-family: 'Raleway', Helvetica, sans-serif;
+  background: #3ab7e5;
+	color: #333;
+	font-family: 'Lato-Regular';
+	width: 100%:
+	height: 100%;
+  font-size: 25px;
+  font-family: 'Lato-Regular';
   min-width: 320px;
 }
 
@@ -26,7 +59,7 @@ header {
     left: 50%;
 }
 body {
-  background-color: rgb(250, 250, 250);
+  background-color: #ededed;
   margin: 0 auto;
   border-radius: 4px;
   width: 75%;
@@ -36,6 +69,7 @@ body {
 }
 
 label {
+  font-size: 20px;
   display: inline-block;
   text-align: right;
   width: 40%;
@@ -64,7 +98,9 @@ input {
   width: 40px;
 }
 #demo {
-          background-color: rgb(250, 250, 250);
+    text-align: right;
+    font-size: 15px;
+
     }
 .userRatings,
 input[type="checkbox"] {
@@ -72,10 +108,10 @@ input[type="checkbox"] {
   margin-right: 5px;
 }
 
-button {
-  background-color: #59ace0;
+.button {
+  background-color: #000;
   border-radius: 4px;
-  color: white;
+  color: #fff;
   font-size: 1em;
   height: 40px;
   width: 96px;
@@ -137,23 +173,25 @@ button {
   <script src="https://crypto-js.googlecode.com/svn/tags/3.0.2/build/rollups/hmac-sha256.js"></script>
   <script src="https://crypto-js.googlecode.com/svn/tags/3.0.2/build/components/enc-base64-min.js"></script>
 
-<header>
-<p>CRM.COM Link Generator</p>
-</header>
 
-<select onchange="changeOptions(this)" id="dropdown" name="currentPos" class="dropdown">
+<p>CRM.COM Link Generator</p>
+
+<div class="bodyb">
+
+
+<select onchange="changeOptions(this)" id="dropdown" name="currentPos" class="dropdown" >
 <option selected disabled></option>
 <!-- change -->
 <option value="email_track">Email Track</option>
-<option value="opt_in_direct_marketing" >Opt in direct marketing</option>
-<option value="opt_in_affiliate_marketing">Opt in affiliate marketing</option>
-<option value="opt_out_direct_marketing">Opt out direct marketing</option>
-<option value="opt_out_affiliate_marketing">Opt out affiliate marketing</option>
+<option value="opt_in_direct_marketing" >Opt in Direct Marketing</option>
+<option value="opt_in_affiliate_marketing">Opt in Affiliate Marketing</option>
+<option value="opt_out_direct_marketing">Opt out Direct Marketing</option>
+<option value="opt_out_affiliate_marketing">Opt out Affiliate Marketing</option>
 <option value="link_track">Link Track</option>
 <option value="service_request_response_acceptance">Service Request Response Acceptance</option>
 <option value="service_request_temporary_resolution_acceptance">Service Request Temporary Response Acceptance</option>
 <option value="service_request_final_resolution_acceptance">Service Request Final Response Acceptance</option>
-
+</div>
 <div id="form_sample">
 
 </div>
@@ -162,7 +200,6 @@ button {
 
 <script>
 function changeOptions(selectEl) {
-  let first = "0";
   let forms = new Array();
   forms[0] = new Array ( "Server: ", "Communications ID: ", "Organisation: " ); //email_track
   forms[1] = new Array ("serverh", "pv1h", "pv2h", "pv3h", "pv4h");
@@ -170,38 +207,36 @@ function changeOptions(selectEl) {
   forms[3] = new Array ( "Server", "Link", "Communications ID", "Organisation"); //link_track
   forms[4] = new Array ( "Server", "Service Request ID: ", "Contact Information ID: ", "Organisation: ", "Redirection URL: ");
   console.log("forms Array created");
+  let selectedValuename = selectEl.options[selectEl.selectedIndex].text;
 
-  let selectedValue = selectEl.options[selectEl.selectedIndex].value;
-  let title = document.createElement('P');
-  let ans = document.createTextNode(selectedValue);
-  title.appendChild(ans);
-  //answer.appendChild(ans);
-  console.log(title);
-  document.body.appendChild(title);
+
+      let selectedValue = selectEl.options[selectEl.selectedIndex].value;
+  var ls = document.body.getElementsByTagName("form")[0];
+  if(ls!=null){
+          console.log(ls);
+          document.body.removeChild(ls);
+          console.log("sa");
+        }
 
   if(selectedValue == "email_track"){
     let createform = document.createElement('form'); // Create New Element Form
     createform.setAttribute("action", ""); // Setting Action Attribute on Form
+    createform.setAttribute("class", "bodyb")
     createform.setAttribute("method", "post"); // Setting Method Attribute on Form
     console.log(createform.children.length);
-    if(first == "0"){
       console.log("sa");
       console.log(document.body);
-
-    var ls = document.body.getElementsByTagName("label")[0];
-            console.log(ls);
-            //document.body.removeChild(ls);
-            console.log("sa");
-          }
-          else if(first == "1"){
-            console.log("as");
-          }
+      let title = document.createElement('P');
+      let ans = document.createTextNode(selectedValuename);
+      title.appendChild(ans);
+      createform.appendChild(title);
+      console.log(title);
     let linebreak = document.createElement("br");
     let f = document.getElementById("form_sample");
     console.log("form created");
     console.log(createform);
     console.log("form created");
-    first = false;
+
     for(let i=0;i < forms[0].length;i++){
       console.log("into the loop");
       console.log(createform.children.length);
@@ -223,9 +258,9 @@ function changeOptions(selectEl) {
     }
     var submitt = document.createElement("INPUT");
     submitt.setAttribute("type", "button");
-    submitt.setAttribute("value", "Generate Link");
+    submitt.setAttribute("value", "Submit");
     var answer  = document.createElement("p");
-    answer.setAttribute("id", "demo");
+    //answer.setAttribute("id", "demo");
     //let ans = document.createTextNode("Hello World");
     createform.appendChild(answer);
     //answer.appendChild(ans);
@@ -243,7 +278,6 @@ function changeOptions(selectEl) {
             selectedValue == "opt_in_affiliate_marketing" ||
             selectedValue == "opt_out_direct_marketing" ||
             selectedValue == "opt_out_affiliate_marketing"){
-              first = "1";
               let f = document.getElementById("form_sample");
               let createform = document.createElement('form'); // Create New Element Form
               createform.setAttribute("action", ""); // Setting Action Attribute on Form
@@ -251,6 +285,11 @@ function changeOptions(selectEl) {
               console.log("form created");
               console.log(createform);
               console.log("form created");
+              let title = document.createElement('P');
+              let ans = document.createTextNode(selectedValuename);
+              title.appendChild(ans);
+              createform.appendChild(title);
+              console.log(title);
       for(let i=0;i < forms[2].length;i++){
         let x = document.createElement('label'); // Create Label for Name Field
         x.innerHTML = forms[2][i]; // Set Field Labels
@@ -267,9 +306,9 @@ function changeOptions(selectEl) {
       }
       var submitt = document.createElement("INPUT");
       submitt.setAttribute("type", "button");
-      submitt.setAttribute("value", "Generate Link");
+      submitt.setAttribute("value", "Submit");
       var answer  = document.createElement("p");
-      answer.setAttribute("id", "demo");
+      //answer.setAttribute("id", "demo");
       //let ans = document.createTextNode("Hello World");
       createform.appendChild(answer);
       //answer.appendChild(ans);
@@ -291,6 +330,11 @@ function changeOptions(selectEl) {
         console.log("form created");
         console.log(createform);
         console.log("form created");
+        let title = document.createElement('P');
+        let ans = document.createTextNode(selectedValuename);
+        title.appendChild(ans);
+        createform.appendChild(title);
+        console.log(title);
         for(let i=0;i < forms[3].length;i++){
           let x = document.createElement('label'); // Create Label for Name Field
           x.innerHTML = forms[3][i]; // Set Field Labels
@@ -307,9 +351,9 @@ function changeOptions(selectEl) {
             }
             var submitt = document.createElement("INPUT");
             submitt.setAttribute("type", "button");
-            submitt.setAttribute("value", "Generate Link");
+            submitt.setAttribute("value", "Submit");
             var answer  = document.createElement("p");
-            answer.setAttribute("id", "demo");
+            //answer.setAttribute("id", "demo");
             //let ans = document.createTextNode("Hello World");
             createform.appendChild(answer);
             //answer.appendChild(ans);
@@ -334,6 +378,11 @@ function changeOptions(selectEl) {
                   console.log("form created");
                   console.log(createform);
                   console.log("form created");
+                  let title = document.createElement('P');
+                  let ans = document.createTextNode(selectedValuename);
+                  title.appendChild(ans);
+                  createform.appendChild(title);
+                  console.log(title);
           for(let i=0;i < forms[4].length;i++){
             let x = document.createElement('label'); // Create Label for Name Field
             x.innerHTML = forms[4][i]; // Set Field Labels
@@ -350,9 +399,9 @@ function changeOptions(selectEl) {
           }
           var submitt = document.createElement("INPUT");
           submitt.setAttribute("type", "button");
-          submitt.setAttribute("value", "Generate Link");
+          submitt.setAttribute("value", "Submit");
           var answer  = document.createElement("p");
-          answer.setAttribute("id", "demo");
+          //answer.setAttribute("id", "demo");
           //let ans = document.createTextNode("Hello World");
           createform.appendChild(answer);
           //answer.appendChild(ans);
@@ -399,7 +448,7 @@ function changeOptions(selectEl) {
       let result = urljs.link(urljs);
       console.log(result);
       //document.getElementById("intro").innerHTML = prefix;
-       document.getElementById("demo").innerHTML = result;
+       //document.getElementById("demo").innerHTML = result;
       window.open(urljs);
     }
     else if(selectedValue=="opt_in_direct_marketing"){
@@ -429,7 +478,7 @@ function changeOptions(selectEl) {
       let final = prefix + urljs;
       let result = urljs.link(urljs);
       //document.getElementById("intro").innerHTML = prefix;
-      document.getElementById("demo").innerHTML = result;
+      //document.getElementById("demo").innerHTML = result;
       window.open(urljs);
     }
        else if(selectedValue=="opt_out_direct_marketing"){
@@ -459,7 +508,7 @@ function changeOptions(selectEl) {
          let final = prefix + urljs;
          let result = urljs.link(urljs);
           //document.getElementById("intro").innerHTML = prefix;
-          document.getElementById("demo").innerHTML = result;
+          //document.getElementById("demo").innerHTML = result;
           window.open(urljs);
 
        }
@@ -490,7 +539,7 @@ function changeOptions(selectEl) {
          let final = prefix + urljs;
          let result = urljs.link(urljs);
           //document.getElementById("intro").innerHTML = prefix;
-          document.getElementById("demo").innerHTML = result;
+          //document.getElementById("demo").innerHTML = result;
           window.open(urljs);
 
        }
@@ -520,7 +569,7 @@ function changeOptions(selectEl) {
          let final = prefix + urljs;
          let result = urljs.link(urljs);
           //document.getElementById("intro").innerHTML = prefix;
-          document.getElementById("demo").innerHTML = result;
+          //document.getElementById("demo").innerHTML = result;
           window.open(urljs);
        }
        else if(selectedValue=="link_track"){
@@ -547,7 +596,7 @@ function changeOptions(selectEl) {
                let final = prefix + urljs;
                let result = urljs.link(urljs);
           //document.getElementById("intro").innerHTML = prefix;
-          document.getElementById("demo").innerHTML = result;
+          //document.getElementById("demo").innerHTML = result;
           window.open(urljs);
        }
        else if(selectedValue=="service_request_response_acceptance"){
@@ -579,7 +628,7 @@ function changeOptions(selectEl) {
          let final = prefix + urljs;
          let result = urljs.link(urljs);
           //document.getElementById("intro").innerHTML = prefix;
-          document.getElementById("demo").innerHTML = result;
+          //document.getElementById("demo").innerHTML = result;
           window.open(urljs);
 
        }
@@ -613,7 +662,7 @@ function changeOptions(selectEl) {
          let final = prefix + urljs;
          let result = urljs.link(urljs);
           //document.getElementById("intro").innerHTML = prefix;
-          document.getElementById("demo").innerHTML = result;
+          //document.getElementById("demo").innerHTML = result;
           window.open(urljs);
 
        }
@@ -647,7 +696,7 @@ function changeOptions(selectEl) {
          let final = prefix + urljs;
          let result = urljs.link(urljs);
           //document.getElementById("intro").innerHTML = prefix;
-          document.getElementById("demo").innerHTML = result;
+          //document.getElementById("demo").innerHTML = result;
           window.open(urljs);
 
        }
